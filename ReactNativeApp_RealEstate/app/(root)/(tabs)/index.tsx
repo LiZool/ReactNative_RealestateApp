@@ -1,5 +1,8 @@
+// app/(root)/(tabs)/index
+
 import { Text, View } from 'react-native';
 import { Link } from 'expo-router';
+import tw from "tailwind-react-native-classnames";
 
 export default function Index () {
   return (
@@ -10,7 +13,7 @@ export default function Index () {
       alignItems: "center",
     }}>
     
-      <Text className="font-bold text-lg my-10"> Welcome to ReState </Text>
+      <Text style={{ color: "black", fontSize: 24, marginBottom: 15 }}> Welcome to ReState </Text>
       <Link href="/sign-up"> Sign Up </Link>
       <Link href="/explore"> Explore </Link>
       <Link href="/profile"> Profile </Link>
