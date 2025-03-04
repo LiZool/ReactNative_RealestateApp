@@ -1,3 +1,5 @@
+// splashscreen.tsx
+
 import { View, Text, Image, ActivityIndicator } from "react-native"
 
 export default function SplashScreen() {
