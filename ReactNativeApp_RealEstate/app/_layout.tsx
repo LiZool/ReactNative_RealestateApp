@@ -1,4 +1,4 @@
-import { Stack } from "expo-router";
+import { Stack, Slot } from "expo-router";
 import { useFonts } from "expo-font";
 import { useEffect, useState, useCallback } from "react";
 import { View, ActivityIndicator } from "react-native";
@@ -41,5 +41,7 @@ export default function RootLayout() {
     return <SplashScreenComponent />; // Show custom splash screen
   }
 
-  return <Stack screenOptions={{ headerShown: false }} onLayout={onLayoutRootView} />;
+  return (
+    <Slot onLayout={onLayoutRootView} /> 
+  );  
 }
