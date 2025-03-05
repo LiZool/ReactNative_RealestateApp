@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import { Tabs } from "expo-router"
 
@@ -9,8 +9,19 @@ const TabIcon = ({ focused, icon, title}: {
     icon: any;
     title: string;
 }) => (
-    <View>
-        <Image source={icon} style={{ width: 24, height: 24, tintColor: focused ? "blue" : "gray" }} />
+    <View style={{
+            flex: 1,
+            margin: 3,
+            alignItems: 'center'}}>
+        <Image 
+            source={icon} 
+            style={{ 
+                width: 40, 
+                height: 40, 
+                tintColor: focused ? "blue" : "gray" }} />
+        <Text style={[styles.text, focused && styles.textFocused]}>
+            {title}
+        </Text>
     </View>
 )
 
@@ -24,7 +35,7 @@ const TabsLayout = () => {
                     position: 'absolute',
                     borderTopColor: '#0061FF1A',
                     borderTopWidth: 1,
-                    minHeight: 100,
+                    minHeight: 80,
                 }
             }}>
 
@@ -34,7 +45,9 @@ const TabsLayout = () => {
                     title: 'Home',
                     headerShown: false,
                     tabBarIcon: ({ focused }) => (
-                        <TabIcon icon={icons.home} focused={focused} title="Home" />
+                        <TabIcon icon={icons.home} 
+                                    focused={focused} 
+                                    title="Home" />
                     )
                 }}
              />
@@ -43,3 +56,32 @@ const TabsLayout = () => {
 }
 
 export default TabsLayout;
+
+const styles = StyleSheet.create({
+    tabIconContainer: {
+        flex: 1,
+        margin: 3,
+        alignItems: 'center'
+    },
+    icon: {
+        width: 40,
+        height: 40
+    },
+    text: {
+        fontSize: 12,
+        color: 'black',
+        textAlign: 'center',
+        marginTop: 5
+    },
+    textFocused: {
+        color: 'blue',
+        fontWeight: 'bold'
+    },
+    tabBar: {
+        backgroundColor: 'white',
+        position: 'absolute',
+        borderTopColor: '#0061FF1A',
+        borderTopWidth: 1,
+        minHeight: 80
+    }
+});

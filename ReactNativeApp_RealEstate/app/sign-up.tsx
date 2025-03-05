@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { ImageBase, GoogleIcon } from "../constants/icons"; 
+import icons from "../constants/icons"; 
 
 const SignUp = () => {
 
@@ -13,7 +13,7 @@ const SignUp = () => {
     <SafeAreaView style={{  }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center", alignItems: "center" }}> 
         <Image 
-          source={ImageBase.onBoarding} 
+          source={icons.google}
           style={{ width: "80%", height: 200}}
           resizeMode="contain" />              
       
@@ -55,7 +55,7 @@ const SignUp = () => {
             </View>
 
             <Image 
-              source={GoogleIcon.onBoarding} 
+              source={icons.google}
               style={{ width: 25, height: 25, marginRight: 10 }}
               resizeMode="contain"
             />
