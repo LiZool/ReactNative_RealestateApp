@@ -5,6 +5,7 @@ const icons = {
   search: require("../assets/images/icons/search.png"),
   notification: require("../assets/images/icons/notification.png"),
   profile: require("../assets/images/icons/profile.png"),
+  user: require("../assets/images/icons/user.png"),
   onBoarding: require("../assets/images/pngwing.png"),
 };
 

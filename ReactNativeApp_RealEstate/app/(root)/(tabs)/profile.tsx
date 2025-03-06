@@ -10,8 +10,10 @@ const profile = () => {
     <SafeAreaView>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{padding: 5}}> 
-          <View style={{ flex: 1,
+        contentContainerStyle={{padding: 5, flexGrow: 1}}> 
+
+          {/* Header Section */}
+          <View style={{ 
                 flexDirection: 'row',
                 alignItems: 'center', 
                 justifyContent: 'space-between',
@@ -34,8 +36,12 @@ const profile = () => {
                 alignItems: 'center', 
                 justifyContent: 'space-between'}}> 
             <Image 
-                source={icons.notification} 
-                style={{ width: 20, height: 20 }}
+                source={icons.user} 
+                style={{ 
+                  width: 100, 
+                  height: 100, 
+                  borderRadius: 50
+                }}
             />
           </View>
       </ScrollView>
