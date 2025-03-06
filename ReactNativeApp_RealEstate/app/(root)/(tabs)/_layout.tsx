@@ -11,13 +11,13 @@ const TabIcon = ({ focused, icon, title}: {
 }) => (
     <View style={{
             flex: 1,
-            margin: 3,
+            marginTop: 4,
             alignItems: 'center'}}>
         <Image 
             source={icon} 
             style={{ 
-                width: 40, 
-                height: 40, 
+                width: 30, 
+                height: 30, 
                 tintColor: focused ? "blue" : "gray" }} />
         <Text style={[styles.text, focused && styles.textFocused]}>
             {title}
