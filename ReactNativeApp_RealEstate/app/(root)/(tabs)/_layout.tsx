@@ -11,7 +11,8 @@ const TabIcon = ({ focused, icon, title}: {
 }) => (
     <View style={{
             flex: 1,
-            marginTop: 4,
+            marginTop: -10,
+            marginBottom: 3,
             alignItems: 'center'}}>
         <Image 
             source={icon} 
@@ -35,7 +36,7 @@ const TabsLayout = () => {
                     position: 'absolute',
                     borderTopColor: '#0061FF1A',
                     borderTopWidth: 1,
-                    minHeight: 80,
+                    minHeight: 75,
                 }
             }}>
 
@@ -86,7 +87,7 @@ export default TabsLayout;
 const styles = StyleSheet.create({
     tabIconContainer: {
         flex: 1,
-        margin: 3,
+        margin: 1,
         alignItems: 'center'
     },
     icon: {
@@ -108,6 +109,5 @@ const styles = StyleSheet.create({
         position: 'absolute',
         borderTopColor: '#0061FF1A',
         borderTopWidth: 1,
-        minHeight: 80
     }
 });
