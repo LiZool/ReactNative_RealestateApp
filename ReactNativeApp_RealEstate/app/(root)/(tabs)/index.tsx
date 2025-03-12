@@ -24,8 +24,13 @@ export default function Index () {
             </View> 
           </View>
         </View>
-
         <Search />
+
+        <View style={{marginVertical: 5}}>
+          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent:'space-between'}}>
+            <Text> Featured </Text>
+          </View>
+        </View>
       </SafeAreaView>
     </GlobalProvider>
   );
