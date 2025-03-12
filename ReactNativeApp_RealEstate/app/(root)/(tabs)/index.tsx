@@ -6,6 +6,7 @@ import tw from "tailwind-react-native-classnames";
 import { GlobalProvider } from "@/context/GlobalContext";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import images from "@/constants/icons"
+import Search from '@/components/Search'
 
 export default function Index () {
   return (
@@ -23,6 +24,8 @@ export default function Index () {
             </View> 
           </View>
         </View>
+
+        <Search />
       </SafeAreaView>
     </GlobalProvider>
   );

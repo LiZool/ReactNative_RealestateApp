@@ -15,6 +15,7 @@ const icons = {
   logout: require("../assets/images/icons/logout.png"),
   wallet: require("../assets/images/icons/wallet.png"),
   language: require("../assets/images/icons/language.png"),
+  filter: require("../assets/images/icons/filter.png"),
   invite: require("../assets/images/icons/invite.png"),
   onBoarding: require("../assets/images/pngwing.png"),
 };
