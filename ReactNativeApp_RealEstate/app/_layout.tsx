@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { View, ActivityIndicator } from "react-native";
 import * as SplashScreen from "expo-splash-screen"; // Import SplashScreen API
 import SplashScreenComponent from "@/components/SplashScreen"; // Your custom splash screen component
+import { GlobalProvider } from "@/context/GlobalContext"; // Import GlobalProvider
 
 // Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -42,6 +43,8 @@ export default function RootLayout() {
   }
 
   return (
-    <Slot onLayout={onLayoutRootView} /> 
+    <GlobalProvider> 
+      <Slot onLayout={onLayoutRootView} /> 
+    </GlobalProvider>
   );  
 }

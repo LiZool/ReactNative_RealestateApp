@@ -1,45 +1,53 @@
-import { View, Text, ScrollView, Image, TouchableOpacity, ImageSourcePropType } from 'react-native'
+import { View, Text, ScrollView, Image, TouchableOpacity, ImageSourcePropType, Alert } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import icons from "@/constants/icons"; 
 import images from '@/constants/images'
 import { settings } from '@/constants/data'
+import { useGlobalContext } from "@/context/GlobalContext";
 
 interface SettingsItemProps {
   icon: ImageSourcePropType;
   title: string;
   onPress?: () => void;
-  textStyle?: string;
+  textStyle?: object;
+  iconStyle?: object;
   showArrow?: boolean;
+  style?: object;
 }
 
-const SettingsItem = ({ icon, title, onPress, textStyle, showArrow = true } : SettingsItemProps) => (
+const SettingsItem = ({ icon, title, onPress, textStyle = {}, iconStyle = {}, showArrow = true, style = {} } : SettingsItemProps) => (
   <TouchableOpacity
-  onPress={onPress}
-    style={{
-      flexDirection: "row",
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      paddingVertical: 8,
-      paddingHorizontal: 10,
-      width: '100%',
-    }}>
+    onPress={onPress}
+      style={[
+        {
+          flexDirection: "row",
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          paddingVertical: 8,
+          paddingHorizontal: 10,
+          width: '100%',
+        }, style ]}>
+      
       <View style={{
         flexDirection: 'row',
         alignItems: 'center',
         gap: 8,
       }}>
+       {/* Apply iconStyle */}
       <Image source={icon} 
-        style={{
+        style={[{
           height: 30,
           width: 30,
-          resizeMode: 'contain'}}/>
-      <Text 
-        style={{
-          fontSize: 12,
-        }}> 
-        { title } </Text>
-    </View>
+          resizeMode: 'contain'}, iconStyle]}/>
+
+          {/* Apply textStyle */}
+        <Text 
+          style={[{
+            fontSize: 12,
+          }, textStyle]}> 
+          { title } </Text>
+      </View>
 
     {/* Right Section: Arrow Icon */}
     {showArrow && (
@@ -57,7 +65,23 @@ const SettingsItem = ({ icon, title, onPress, textStyle, showArrow = true } : Se
 )
 
 const Profile = () => {
-  const handleLogOut = async () => {};
+
+  const { user, refetch, logout } = useGlobalContext()
+
+  const handleLogOut = async () => {
+    const result = await logout()
+
+    if(result)
+    {
+      Alert.alert("Success", "You have been logged  out succesfully");
+      refetch();
+    }
+
+    else
+    {
+      Alert.alert("Error", "An error occured while logging out")
+    }
+  };
 
   return (
     <SafeAreaView>
@@ -91,10 +115,10 @@ const Profile = () => {
           {/* Image and Edit Icon Container */}
           <View style={{ position: 'relative' }}>
             <Image
-              source={icons.user}
+              source={ user?.profilePicture ? {uri: user.profilePicture} : require('@/assets/images/icons/profile.png')}
               style={{
-                width: 100,
-                height: 100,
+                width: 120,
+                height: 120,
                 borderRadius: 50
               }}
             />
@@ -122,7 +146,7 @@ const Profile = () => {
           {/* User Information */}
           <Text style={{
             fontSize: 14,
-            marginTop: 8
+            marginTop: 6
           }}>
             Kaz | 0019
           </Text>
@@ -130,8 +154,6 @@ const Profile = () => {
         </View>
 
         <View style={{
-          flex: 1,
-          flexDirection: 'column',
           marginTop: 10,
         }}>
           <SettingsItem icon={icons.calander} title="My Bookings" />
@@ -139,14 +161,34 @@ const Profile = () => {
         </View>
 
         <View style={{
-          flex: 1,
-          flexDirection: 'column',
-          marginTop: 5,
-          paddingTop: 5,
-        }}>
-          {settings.slice(2).map((item, index) => (
-            <SettingsItem key={index} { ...item } />
-          ))}
+            flexDirection: 'column',
+            marginTop: 25,
+            paddingTop: 5,
+          }}>
+            {settings.map((item, index) => (
+              <SettingsItem key={index} { ...item } />
+            ))}
+        </View>
+
+        <View style={{
+            alignItems: 'flex-start',
+            marginTop: 25,
+            paddingTop: 5,
+          }}>
+            <SettingsItem icon={icons.logout} 
+              title="Logout" 
+              showArrow={false} 
+              onPress={handleLogOut}
+              textStyle={{
+                color: 'red',
+                fontWeight: 'bold'
+              }}
+              iconStyle={{
+                tintColor: 'red'
+              }}
+              style={{ 
+                borderRadius: 5,
+                width: '90%'}} />         
         </View>
       </ScrollView>
     </SafeAreaView>

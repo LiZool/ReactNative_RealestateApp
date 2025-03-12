@@ -9,22 +9,32 @@ export const categories = [
 
 export const settings = [
     {
-        title: 'My Bookings',
-        icon: icons.calander,
-    },
-
-    {
-        title: 'Payments',
-        icon: icons.wallet,
-    },
-
-    {
         title: 'Profile',
         icon: icons.user,
     },
 
     {
-        title: 'Profile',
-        icon: icons.user,
-    }
+        title: 'Notifications',
+        icon: icons.notification,
+    },
+
+    {
+        title: 'Security',
+        icon: icons.security,
+    },
+
+    {
+        title: 'Language',
+        icon: icons.language,
+    },
+
+    {
+        title: 'Help Center',
+        icon: icons.help,
+    },
+
+    {
+        title: 'Invite Friends',
+        icon: icons.invite,
+    },
 ]
