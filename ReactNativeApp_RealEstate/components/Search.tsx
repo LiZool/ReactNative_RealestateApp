@@ -2,7 +2,7 @@ import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { useLocalSearchParams, usePathname, useRouter } from 'expo-router'
 import icons from "@/constants/icons"; 
-import images from '@/constants/images'
+import images from '@/constants/houseImages'
 import { useDebouncedCallback } from 'use-debounce';
 
 const Search = () => {
