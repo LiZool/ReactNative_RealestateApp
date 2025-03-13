@@ -17,26 +17,33 @@ export const FeaturedCard = ({ onPress}: Props) => {
                     style={{position: 'absolute', bottom: 0, 
                         width: '100%', height: 50, borderBottomLeftRadius: 15, borderBottomRightRadius: 15
                     }} /> **/}
-
-            <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: 'white',
-                            paddingHorizontal: 1, paddingVertical: 3, position: 'absolute', top: 7, right: 13
-            }}>
-                <Image source={images.star} style={{ height: 10, width: 10}} />
-                <Text style={{fontSize: 14}}> 4.4 </Text>
-            </View>
-
-            <View style={{flex: 1, flexDirection: 'column', paddingBottom: 6,
-                    position: 'absolute', bottom: 5}}>
-                <Text style={{ fontSize: 14, fontWeight: 'bold', color: 'white'}}> Modern Apartment </Text>
-            </View>
         </TouchableOpacity>
     )
 }
 
-export const Card = () => {
+export const Card = ({ onPress }: Props) => {
     return (
-        <View >
-            <Text style={{ fontSize: 18, fontWeight: 'bold' }}> Cards </Text>
-        </View>
+        <TouchableOpacity onPress={onPress} style={{ flex: 1, width: '100%', marginTop: 4, paddingVertical: 3,
+            backgroundColor: 'white', shadowColor: '#000', shadowOffset: {width: 8, height: 2}, shadowOpacity: 2, 
+            elevation: 3, position: 'relative'}}>
+                <View style={{flexDirection: 'row', alignItems: 'center', backgroundColor: 'white',
+                                paddingHorizontal: 1, paddingVertical: 3, position: 'absolute', top: 7, right: 13, zIndex: 50}}>
+                    <Image source={images.star} style={{ height: 10, width: 10}} />
+                    <Text style={{fontSize: 14}}> 4.4 </Text>
+                </View>
+
+                <Image source={houseImages.house2.jpg} style={{width: '100%', height: 40}} />
+
+                <View style={{flex: 1, flexDirection: 'column',
+                        position: 'absolute', bottom: 20, left: 6}}>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold', color: 'white'}}> Modern Apartment </Text>
+                    <Text style={{fontSize: 10, color: 'white'}}> 22 W 15 sh, nn</Text>
+
+                    <View style={{flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-between'}}>
+                        <Text style={{color: 'white', fontWeight: 'bold'}}> $2,500 </Text>
+                        <Image source={images.heart} style={{height: 10, width: 10}} />
+                    </View>
+                </View>
+        </TouchableOpacity>
     )
 }

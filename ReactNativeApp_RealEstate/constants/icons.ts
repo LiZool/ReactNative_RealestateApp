@@ -18,6 +18,7 @@ const icons = {
   filter: require("../assets/images/icons/filter.png"),
   invite: require("../assets/images/icons/invite.png"),
   star: require("../assets/images/icons/star.png"),
+  heart: require("../assets/images/icons/heart2.png"),
   onBoarding: require("../assets/images/pngwing.png"),
 };
 
