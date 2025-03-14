@@ -23,27 +23,79 @@ export const FeaturedCard = ({ onPress}: Props) => {
 
 export const Card = ({ onPress }: Props) => {
     return (
-        <TouchableOpacity onPress={onPress} style={{ flex: 1, width: '100%', marginTop: 4, paddingVertical: 3,
-            backgroundColor: 'white', shadowColor: '#000', shadowOffset: {width: 8, height: 2}, shadowOpacity: 2, 
-            elevation: 3, position: 'relative'}}>
-                <View style={{flexDirection: 'row', alignItems: 'center', backgroundColor: 'white',
-                                paddingHorizontal: 1, paddingVertical: 3, position: 'absolute', top: 7, right: 13, zIndex: 50}}>
-                    <Image source={images.star} style={{ height: 10, width: 10}} />
-                    <Text style={{fontSize: 14}}> 4.4 </Text>
-                </View>
-
-                <Image source={houseImages.house2.jpg} style={{width: '100%', height: 40}} />
-
-                <View style={{flex: 1, flexDirection: 'column',
-                        position: 'absolute', bottom: 20, left: 6}}>
-                    <Text style={{ fontSize: 14, fontWeight: 'bold', color: 'white'}}> Modern Apartment </Text>
-                    <Text style={{fontSize: 10, color: 'white'}}> 22 W 15 sh, nn</Text>
-
-                    <View style={{flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-between'}}>
-                        <Text style={{color: 'white', fontWeight: 'bold'}}> $2,500 </Text>
-                        <Image source={images.heart} style={{height: 10, width: 10}} />
-                    </View>
-                </View>
-        </TouchableOpacity>
-    )
-}
+      <TouchableOpacity
+        onPress={onPress}
+        style={{
+          flex: 1,
+          width: "100%",
+          marginTop: 12,
+          backgroundColor: "white",
+          borderRadius: 12,
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.2,
+          shadowRadius: 4,
+          elevation: 5, // Android shadow
+          paddingBottom: 12, // Space for text below
+        }}
+      >
+        {/* Image Container */}
+        <View
+          style={{
+            width: "100%",
+            height: 180,
+            borderTopLeftRadius: 12,
+            borderTopRightRadius: 12,
+            overflow: "hidden",
+          }}
+        >
+          <Image
+            source={houseImages.house2}
+            style={{ width: "100%", height: "100%" }}
+          />
+  
+          {/* Rating Badge (inside image container) */}
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              backgroundColor: "rgba(255, 255, 255, 0.9)",
+              paddingHorizontal: 8,
+              paddingVertical: 4,
+              borderRadius: 15,
+              position: "absolute",
+              top: 10,
+              right: 15,
+            }}>
+            <Image source={images.star} style={{ height: 16, width: 16 }} />
+            <Text style={{ fontSize: 14, fontWeight: "bold", marginLeft: 5 }}>
+              4.4
+            </Text>
+          </View>
+        </View>
+  
+        {/* Text & Price Section (below image) */}
+        <View style={{ paddingHorizontal: 12, paddingTop: 8 }}>
+          <Text style={{ fontSize: 16, fontWeight: "bold", color: "#333" }}>
+            Modern Apartment
+          </Text>
+          <Text style={{ fontSize: 12, color: "#777" }}>22 W 15 sh, nn</Text>
+  
+          {/* Price & Favorite Icon */}
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginTop: 8,
+            }}
+          >
+            <Text style={{ fontSize: 18, fontWeight: "bold", color: "#FF5733" }}>
+              $2,500
+            </Text>
+            <Image source={images.heart} style={{ height: 24, width: 24 }} />
+          </View>
+        </View>
+      </TouchableOpacity>
+    );
+  };
