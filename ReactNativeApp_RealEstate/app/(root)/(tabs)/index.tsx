@@ -56,9 +56,11 @@ export default function Index () {
               </TouchableOpacity>
           </View>
 
-          <Filter />
+          <View style={{ marginBottom: 0, paddingBottom: 0 }}>
+            <Filter />
+          </View>
 
-          <View style={{flex: 1, flexDirection: 'row', gap: 5, marginTop: 5}}>
+          <View style={{flex: 1, flexDirection: 'row', gap: 5, marginTop: 2}}>
             <Card />
             <Card />
           </View>
