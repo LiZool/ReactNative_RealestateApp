@@ -1,3 +1,5 @@
+// Layout
+
 import { View, Text, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import { Tabs } from "expo-router"
@@ -19,7 +21,7 @@ const TabIcon = ({ focused, icon, title}: {
             style={{ 
                 width: 30, 
                 height: 30, 
-                tintColor: focused ? "blue" : "gray" }} />
+                }} />
         <Text style={[styles.text, focused && styles.textFocused]}>
             {title}
         </Text>

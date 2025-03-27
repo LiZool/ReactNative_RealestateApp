@@ -4,6 +4,7 @@ export const categories = [
     { title: "Villas", category: "Villa" },
     { title: "Apartments", category: "Apartments" },
     { title: "Townhomes", category: "Townhomes" },
+    { title: "Studios", category: "studios" },
     { title: "Others", category: "Others" },
 ];
 

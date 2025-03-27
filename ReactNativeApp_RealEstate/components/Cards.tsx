@@ -3,16 +3,31 @@ import React from 'react'
 import houseImages from '@/constants/houseImages'
 import images from '@/constants/icons'
 
-interface Props {
+interface CardProps {
+
     onPress?: () => void;
+    houseImage: any;
+    houseName: string;
+    location: string;
+    title: string;
 }
 
-export const FeaturedCard = ({ onPress}: Props) => {
+export const FeaturedCard = ({ onPress, houseImage, title }: CardProps & { title: string }) => {
     return (
         <TouchableOpacity onPress={onPress} 
-                            style={{ flexDirection: 'column', width: 150, height: 200, margin: 5, position: 'relative' }}>
-            <Image source={houseImages.house1} 
-                    style={{width: '100%', height: '100%', borderRadius: 15}} />
+                            style={{ flexDirection: 'column', width: 130, height: 200, margin: 5, position: 'relative' }}>
+            <Image source={houseImage} 
+                    style={{ width: '100%', height: '100%', borderRadius: 15 }} />
+
+          <Text style={{ 
+            position: 'absolute', 
+            fontSize: 16, 
+            fontWeight: "bold", 
+            bottom: 10, 
+            left: 10, 
+            color: "white" }}>
+              { title }
+          </Text>
             {/** <Image source={houseImages.cardGradient} 
                     style={{position: 'absolute', bottom: 0, 
                         width: '100%', height: 50, borderBottomLeftRadius: 15, borderBottomRightRadius: 15
@@ -21,7 +36,7 @@ export const FeaturedCard = ({ onPress}: Props) => {
     )
 }
 
-export const Card = ({ onPress }: Props) => {
+export const Card = ({ onPress, houseImage, houseName, price, location }: CardProps & {price: string}) => {
     return (
       <TouchableOpacity
         onPress={onPress}
@@ -50,7 +65,7 @@ export const Card = ({ onPress }: Props) => {
           }}
         >
           <Image
-            source={houseImages.house2}
+            source={houseImage}
             style={{ width: "100%", height: "100%" }}
           />
   
@@ -77,9 +92,9 @@ export const Card = ({ onPress }: Props) => {
         {/* Text & Price Section (below image) */}
         <View style={{ paddingHorizontal: 12, paddingTop: 8 }}>
           <Text style={{ fontSize: 16, fontWeight: "bold", color: "#333" }}>
-            Modern Apartment
+            {houseName}
           </Text>
-          <Text style={{ fontSize: 12, color: "#777" }}>22 W 15 sh, nn</Text>
+          <Text style={{ fontSize: 12, color: "#777" }}> { location } </Text>
   
           {/* Price & Favorite Icon */}
           <View
@@ -91,7 +106,7 @@ export const Card = ({ onPress }: Props) => {
             }}
           >
             <Text style={{ fontSize: 18, fontWeight: "bold", color: "#FF5733" }}>
-              $2,500
+              { price }
             </Text>
             <Image source={images.heart} style={{ height: 24, width: 24 }} />
           </View>
